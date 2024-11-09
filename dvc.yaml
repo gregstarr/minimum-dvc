@@ -1,0 +1,11 @@
+stages:
+  write_file:
+    cmd: echo "test\n" > test.txt
+    outs:
+      - test.txt
+  read_file:
+    cmd: cat test.txt
+    deps:
+      - test.txt
+  fail:
+    cmd: python -c "raise Exception"
